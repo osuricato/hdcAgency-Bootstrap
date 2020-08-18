@@ -133,4 +133,39 @@ $(document).ready(function () {
       })
     }
   }
+
+  // Scroll seções
+  let navBotton = $('.nav-item')
+
+  let bannerSection = $('#mainSlider')
+  let aboutSection = $('#about-area')
+  let servicesSection = $('#service-area')
+  let teamSection = $('#team-area')
+  let portfolioSection = $('#portfolio-area')
+  let contactSection = $('#contact-area')
+
+  let scrollTo = ''
+
+  $(navBotton).click(function() {
+
+    let bottonId = $(this).attr('id')
+
+    if(bottonId == 'about-menu') {
+      scrollTo = aboutSection
+    } else if(bottonId == 'service-menu') {
+      scrollTo = servicesSection
+    } else if(bottonId == 'team-menu') {
+      scrollTo = teamSection
+    } else if(bottonId == 'portfolio-menu') {
+      scrollTo = portfolioSection
+    } else if(bottonId == 'contact-menu') {
+      scrollTo = contactSection
+    } else {
+      scrollTo = bannerSection
+    }
+
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $(scrollTo).offset().top
+    })
+  })
 })
